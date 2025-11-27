@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class Nogi : MonoBehaviour
 {
-    private Rzaba GroundM;
     public bool isTouchGround;
 
     void Start()
     {
-        GroundM = GetComponentInParent<Rzaba>();
+        
     }
 
     void Update()

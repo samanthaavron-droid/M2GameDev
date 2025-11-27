@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> Inventory = new List<GameObject>();
+   // [SerializeField] private List<GameObject> Inventory = new List<GameObject>();
+    [SerializeField] private int Score;
     void Start()
     {
         
     }
 
     void Update()
-    {
+    { /*
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (Inventory.Count > 1)
@@ -19,19 +20,21 @@ public class PlayerInventory : MonoBehaviour
             else
                 Debug.Log("Inventory is empty");
         }
+      */
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Item"))
         {
-            collision.gameObject.SetActive(false);
+            //collision.gameObject.SetActive(false);
 
-            Inventory.Add(collision.gameObject);
+            //Inventory.Add(collision.gameObject);
+            Score ++;
             Debug.Log("Item Collected: " + collision.gameObject);
         }
     }
-
+    /*
     void ReplaceItem()
     {
         Inventory.Last().SetActive(true);
@@ -41,4 +44,5 @@ public class PlayerInventory : MonoBehaviour
         Inventory.RemoveAt(Inventory.Count - 1);
         Debug.Log("Item thrown out");
     }
+    */
 }
