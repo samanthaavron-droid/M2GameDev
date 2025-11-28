@@ -1,2 +1,5 @@
-Assigment 1A is done in Assignemt1A_Video
-Assigment 1B is done in Assigment1B_Video
+![Assigment 1A](a1a.gif)
+
+![Assigment 1B](a1b.gif)
+
+![All the scrips if you couldn't look it up](Assets/Scenes/Swamp/Scripts)
