@@ -8,6 +8,7 @@ TagManager:
   - Noga
   - Item
   - Mosq
+  - Target
   layers:
   - Default
   - TransparentFX
