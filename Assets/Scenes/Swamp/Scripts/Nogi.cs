@@ -1,9 +1,9 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Nogi : MonoBehaviour
 {
     public bool isTouchGround;
-
     void Start()
     {
         

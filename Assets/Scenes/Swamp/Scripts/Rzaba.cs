@@ -1,79 +1,91 @@
-using NUnit.Framework;
+using TMPro;
 using UnityEngine;
-using System.Collections.Generic;
-using System;
-using Unity.VisualScripting;
 using UnityEngine.InputSystem;
-using System.Net.Sockets;
-
+using static UnityEngine.UI.Image;
 public class Rzaba : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public Nogi[] nogi;
+    public Nogi noga;
 
     public float jumpForce = 10f;
     public float rotationSpeed = 100f;
 
     public float moveInput;
-    public bool isGrounded;
 
+    private Rigidbody2D curGround;
+
+    public bool debugMode;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        nogi = GetComponentsInChildren<Nogi>();
+        noga = GetComponentInChildren<Nogi>();
     }
-
     void Update()
-    {    
-        //Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
-        {
-            Jumping();
-        }
-
-        //Checking the ground
-        if (NogiCheck() == true)
-            isGrounded = true;
-        else
-            isGrounded = false;
-    }
-
-    //Checking if any leg is touching the ground
-    bool NogiCheck()
     {
-        if (nogi[0].isTouchGround == true || nogi[1].isTouchGround == true)
+        //Jumping
+        if (Input.GetKeyDown(KeyCode.Space) && noga.isTouchGround == true)
         {
-            return true;
+            Jump();
         }
-        else
+        //Sticking to the current ground
+        if (noga.isTouchGround)
         {
-            return false;
+            Stick();
         }
     }
-
     private void FixedUpdate()
+    {
+        //Rolling movement system
+        Rolling();
+    }
+    private void Rolling()
     {
         //Getting input
         moveInput = Input.GetAxisRaw("Horizontal");
         float targetTorque = moveInput * -rotationSpeed;
+
+        //applying rotations
+        rb.AddTorque(targetTorque * Time.fixedDeltaTime);
 
         //checking the change and stopping the rotation
         if (targetTorque * rb.angularVelocity < 0)
         {
             rb.angularVelocity = 0;
             //checking the ground
-            if (isGrounded == true)
+            if (noga.isTouchGround == true)
             {
                 rb.linearVelocity = Vector2.zero;
             }
         }
-
-        //applying rotations
-        rb.AddTorque(targetTorque * Time.fixedDeltaTime);
     }
-
-    private void Jumping()
+    private void Jump()
     {
         rb.AddRelativeForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
+    
+    private void Stick()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up);
+
+        if (hit.collider != null)
+        {
+            if (hit.distance <= 1)
+            {
+                hit.collider.gameObject.TryGetComponent<Rigidbody2D>(out curGround);
+
+                rb.AddForce(curGround.GetPoint(hit.point) * 10, ForceMode2D.Force);
+
+                if (debugMode)
+                {
+                    Debug.Log("Sticking to ground velocity: " + curGround.GetPointVelocity(hit.point));
+                    Debug.DrawRay(transform.position, -transform.up, Color.green);
+                }
+                    
+            }
+        }
+        else
+        {
+            curGround = null;
+        }
     }
 }
