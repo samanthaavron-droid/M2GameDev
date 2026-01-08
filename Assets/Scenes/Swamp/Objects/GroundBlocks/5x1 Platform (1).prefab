@@ -192,7 +192,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3036545430567410922}
   - component: {fileID: 3905218948206738641}
-  - component: {fileID: 7966379567112409831}
   m_Layer: 0
   m_Name: 5x1 Platform (1)
   m_TagString: Ground
@@ -266,18 +265,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7966379567112409831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3887956417901511735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b2b5848a8c48fa48ba6dad85b5a90b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WallStick
 --- !u!1 &4600319151632666317
 GameObject:
   m_ObjectHideFlags: 0

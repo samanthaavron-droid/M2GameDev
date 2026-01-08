@@ -282,7 +282,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9170069242153803621}
-  - component: {fileID: 312341643903510312}
   - component: {fileID: 1715291330754014923}
   - component: {fileID: 4526750975109195666}
   m_Layer: 0
@@ -310,20 +309,6 @@ Transform:
   - {fileID: 1834944587148369471}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &312341643903510312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6880232809200460911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b2b5848a8c48fa48ba6dad85b5a90b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WallStick
-  player: {fileID: 0}
-  stick: 0
 --- !u!61 &1715291330754014923
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6664528418466503408}
   - component: {fileID: 8641373585475510649}
-  - component: {fileID: 1110913618311087985}
   m_Layer: 0
   m_Name: Swimming Platform
   m_TagString: Ground
@@ -82,18 +81,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.0240545, y: 0.5164294}
   m_EdgeRadius: 0
---- !u!114 &1110913618311087985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776595221526502605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b2b5848a8c48fa48ba6dad85b5a90b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WallStick
 --- !u!1 &2037808917561717869
 GameObject:
   m_ObjectHideFlags: 0

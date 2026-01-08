@@ -13,8 +13,13 @@ public class Rzaba : MonoBehaviour
     public float moveInput;
 
     private Rigidbody2D curGround;
+    private int LayerIgnoreRaycast;
 
     public bool debugMode;
+    private void Awake()
+    {
+        LayerIgnoreRaycast = LayerMask.NameToLayer("IgnorePlayer");
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -67,7 +72,7 @@ public class Rzaba : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up);
 
-        if (hit.collider != null)
+        if (hit.collider != null && hit.collider.gameObject.layer != LayerIgnoreRaycast)
         {
             if (hit.distance <= 1)
             {
